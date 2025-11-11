@@ -13,3 +13,17 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.SQLServerDialect
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,metrics,prometheus"
+  endpoint:
+    health:
+      show-details: always    # shows db connection, disk space, etc.
+    prometheus:
+      access: UNRESTRICTED
+  metrics:
+    tags:
+      application: smart-order
